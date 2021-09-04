@@ -1,6 +1,15 @@
 package poo
 
-class Gerente(nome: String, cpf: String, salario: Double) :
-    Funcionario(nome,cpf,salario) {
-    override fun calculoAuxilio() = salario * 0.2
+class Gerente(
+    nome: String,
+    cpf: String,
+    salario: Double,
+    val senha: String
+) : Funcionario(nome = nome, cpf = cpf, salario = salario), Login {
+    override fun calculoAuxilio(): Double = salario * 0.4
+    override fun login(senha: String) {
+        println(login())
+    }
+
+    override fun login(): Boolean = "senha123" == senha
 }
